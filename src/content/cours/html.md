@@ -19,6 +19,7 @@ et se termine par `</h1>`. Voici un exemple de balise de titre:
 ```
 
 <hr />
+
 ## Structure de base d'une page HTML
 ```html
 <!DOCTYPE html>
@@ -34,7 +35,9 @@ et se termine par `</h1>`. Voici un exemple de balise de titre:
 ```
 
 <hr />
+
 ## Styliser les balises
+
 Il est possible de styliser les balises HTML en utilisant le CSS (Voir le cours sur le CSS).
 Pour utiliser le CSS, il faut l'inclure dans le fichier HTML en utilisant la balise `<link>` dans la balise `<head>`.
 Voici un exemple de CSS pour styliser un titre:
@@ -58,6 +61,7 @@ Voici un exemple de CSS pour styliser un titre:
 - type : indique le type de fichier
 
 <hr />
+
 ## Balises de base HTML
 
 - Les titres: `<h1>`, `<h2>`, `<h3>`, `<h4>`, `<h5>`, `<h6>`. Plus le chiffre est grand, plus le titre est petit.

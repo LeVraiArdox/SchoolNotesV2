@@ -10,7 +10,7 @@ export default defineConfig({
 	site: 'https://example.com',
 	integrations: [mdx(), sitemap()],
 	markdown: {
-		syntaxHighlight: "prism",
+		syntaxHighlight: "shiki",
 		remarkPlugins: [remarkMath],
 		rehypePlugins: [rehypeKatex],
 	  },

@@ -15,6 +15,9 @@ const posts = await getCollection('cours')
 		<style>
 			main {
 				width: 960px;
+				max-width: calc(100% - 2em);
+				margin: auto;
+				padding: 1em;
 			}
 			ul {
 				display: flex;
@@ -50,7 +53,7 @@ const posts = await getCollection('cours')
 			.postImg {
 				object-fit: cover;
 				height: 250px;
-				
+				width: 100%;
 			}
 			ul li a:hover h4,
 			ul li a:hover .date {
@@ -59,36 +62,75 @@ const posts = await getCollection('cours')
 			ul a:hover img {
 				box-shadow: var(--box-shadow);
 			}
+
+			summary {
+				cursor: pointer;
+			}
+
+			details[open] summary::after {
+				transform: rotate(90deg);
+			}
+
+			summary h2 {
+				display: inline;
+				margin: 0;
+				font-size: 1.25rem;
+				color: rgb(var(--accent));
+			}
+
+			.tag-section-content {
+				padding: 0 1.25rem 1.25rem;
+				transition: all 0.2s;
+			}
+
+			.tag-section {
+				background-color: rgb(var(--gray-light));
+				padding: 50px;
+				margin: 20px 0;
+				border-radius: 10px;
+				overflow: hidden;
+			}
+
 			@media (max-width: 720px) {
 				ul {
-					gap: 0.5em;
+					gap: 1.5em;
 				}
 				ul li {
 					width: 100%;
-					text-align: center;
+				}
+				main {
+					padding: 0.5em;
 				}
 			}
+
 		</style>
 	</head>
 	<body>
 		<Header />
 		<main>
 			<section>
-				<ul>
-					{
-						posts.sort((a, b) => a.data.tag.localeCompare(b.data.tag)).map((post) => (
-							<li>
-								<a href={`/cours/${post.id}/`}>
-									<img class="postImg" width={720} height={360} src={post.data.heroImage} alt="" />
-									<h4 class="title">{post.data.title}</h4>
-									<p class="date">{post.data.tag}</p>
-								</a>
-							</li>
-						))
-					}
-				</ul>
+				{Array.from(new Set(posts.map(post => post.data.tag))).map(tag => (
+					<details class="tag-section">
+						<summary>
+							<h2>{tag}</h2>
+						</summary>
+						<div class="tag-section-content">
+							<ul>
+								{posts.filter(post => post.data.tag === tag).map(post => (
+									<li>
+										<a href={`/cours/${post.id}/`}>
+											<img class="postImg" width={720} height={360} src={post.data.heroImage} alt="" />
+											<h4 class="title">{post.data.title}</h4>
+											<p class="date">{post.data.tag}</p>
+										</a>
+									</li>
+								))}
+							</ul>
+						</div>
+					</details>
+				))}
 			</section>
 		</main>
-		<Footer />
+	<Footer />
 	</body>
 </html>

@@ -1,0 +1,28 @@
+---
+import { type CollectionEntry, getCollection } from 'astro:content';
+import CoursPost from '../../layouts/CoursPost.astro';
+import { render } from 'astro:content';
+
+export async function getStaticPaths() {
+	const posts = await getCollection('cours');
+	return posts.map((post) => ({
+		params: { slug: post.id },
+		props: post,
+	}));
+}
+type Props = CollectionEntry<'cours'>;
+
+const post = Astro.props;
+const { Content } = await render(post);
+---
+
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css"
+  integrity="sha384-MlJdn/WNKDGXveldHDdyRP1R4CTHr3FeuDNfhsLPYrq2t0UBkUdK2jyTnXPEK1NQ"
+  crossorigin="anonymous"
+/>
+
+<CoursPost {...post.data}>
+	<Content />
+</CoursPost>

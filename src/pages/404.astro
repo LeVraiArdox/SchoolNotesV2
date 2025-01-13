@@ -1,0 +1,29 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+---
+
+<!doctype html>
+<html lang="fr">
+	<head>
+		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+	</head>
+	<body>
+		<Header />
+		<main>
+			<h1>T'es paumé poto</h1>
+            <p>
+                T’as cliqué où, champion ? 
+                <br />
+                Ici, c’est le vide intersidéral.
+                <br />
+                Reviens quand t’auras appris à viser.
+            </p>
+                <i>(Au cas ou t'as pas pigé c'est une page 404)</i>
+            </p>
+        </main>
+		<Footer />
+	</body>
+</html>

@@ -12,10 +12,10 @@ Une **suite numérique** $(u_n)_{n \in \mathbb{N}}$ est une liste de nombres ré
 <br />
 
 Soit la suite $(u_n)$ pour tout entier naturel $n$ superieur à un entier naturel
-$n_0$, on a: - $(u_n)$ est **croissante** si pour tout $n \geq n_0$, $u_{n +
-  1} \geq u_n$. - $(u_n)$ est **décroissante** si pour tout $n \geq n_0$, $u_
-{n + 1} \leq u_n$. - $(u_n)$ est **constante** si pour tout $n \geq n_0$, $u_{n +
-  1} = u_n$.
+$n_0$, on a: 
+- $(u_n)$ est **croissante** si pour tout $n \geq n_0$, $u_{n + 1} \geq u_n$. 
+- $(u_n)$ est **décroissante** si pour tout $n \geq n_0$, $u_{n + 1} \leq u_n$. 
+- $(u_n)$ est **constante** si pour tout $n \geq n_0$, $u_{n + 1} = u_n$.
 
 Une suite est **monotone** si elle est croissante ou décroissantete.
 

@@ -58,3 +58,48 @@ Etude de cas: BD d'une ecole
   - Le cours d'un module a lieu dans une salle donnée; il débute a une heure connue et dure un certain temps.
 
 ![Etude de cas](/sgbdex.png)
+
+Il existe **2 catégories d'entités**:
+- Les entités fortes (ou régulières): Elles existent indépendamment des autres entités. Ex: un étudiant, un professeur, un cours, etc.
+- Les entités faibles (ou dépendantes): Elles n'existent pas sans les autres entités. Ex: une inscription, une affectation, un planning, etc.
+
+Par exemple, l'identité CONTRAT n'existe que si l'entité CLIENT existe. L'entité CONTRAT est donc une entité faible.
+
+Un **attribut** peut être facultatif ou obligatoire. Un attribut est facultatif s'il peut être nul (ex: le numéro de téléphone d'un étudiant). Un attribut est obligatoire s'il ne peut pas être nul (ex: le nom d'un étudiant).
+
+Par exemple, l'attribut DATE_NAISSANCE de l'entité ETUDIANT est un attribut obligatoire. Par contre, l'attribut NUMERO_TELEPHONE de l'entité ETUDIANT est un attribut facultatif.
+
+Un **identifiant** est un attribut qui permet d'identifier de manière **unique** une entité. Un identifiant peut être simple ou composé. Un identifiant est simple s'il est composé d'un seul attribut (ex: le numéro d'étudiant). Un identifiant est composé s'il est composé de plusieurs attributs (ex: le nom et le prénom de l'étudiant). Souvent, l'identifiant est un chiffre généré automatiquement par le SGBD (ex: le numéro d'étudiant).
+
+Les **relations** représentent les liens entre les entités. Une relation est caractérisée par des **cardinalités**. Une cardinalité est le nombre d'entités d'un côté de la relation par rapport au nombre d'entités de l'autre côté de la relation. Il existe 3 types de cardinalités: 1-1, 1-n, n-m.
+
+Par exemple, la relation INSCRIPTION entre les entités ETUDIANT et MODULE est une relation 1-n. Un étudiant peut s'inscrire à 1 ou plusieurs modules. Un module peut être suivi par 1 ou plusieurs étudiants.
+
+Contrairement aux entités, les relations n'ont pas de relations propres. Les relations sont caractérisées par des attributs. 
+
+Par exemple, l'attribut DATE_INSCRIPTION de la relation INSCRIPTION est un attribut qui permet de stocker la date d'inscription d'un étudiant à un module.
+
+La **Dimension** ou degré d'une relation est le nombre d'entités qui participent à la relation. Il existe 3 types de relations:
+
+- **Dimension 1 (ou réflective)**: elle ne concerne qu'une seule entité (ex: un étudiant s'inscrit à un module).
+- **Dimension 2**: c'est la relation la plus courante, elle concerne deux entités (ex: un étudiant s'inscrit à un module).
+- **Dimension 3**: elle concerne trois entités (ex: un étudiant s'inscrit à un module pour une année).
+
+=> De manière générale, une relation peut être caractérisée par n dimensions.
+
+La **Cardinalité** d'une relation est le nombre d'entités qui participent à la relation. Il existe 3 types de cardinalités:
+
+- **Cardinalité 1-1**: une entité d'un côté de la relation est associée à une seule entité de l'autre côté de la relation (ex: un étudiant est inscrit à un seul module).
+- **Cardinalité 1-n**: une entité d'un côté de la relation est associée à plusieurs entités de l'autre côté de la relation (ex: un étudiant est inscrit à plusieurs modules).
+- **Cardinalité n-m**: plusieurs entités d'un côté de la relation sont associées à plusieurs entités de l'autre côté de la relation (ex: plusieurs étudiants sont inscrits à plusieurs modules).
+
+Plus simplement, on peut résumer a ça:
+- Cardinalité un a plusieurs: un département peut avoir plusieurs employés, mais un employé ne peut appartenir qu'à un seul département.
+- Cardinalité plusieurs a plusieurs: un employé peut travailler sur plusieurs projets, et un projet peut être réalisé par plusieurs employés.
+- Cardinalité un a un: un employé a un seul numéro de sécurité sociale, et un numéro de sécurité sociale est attribué à un seul employé.
+
+Les cardinalités maximales et minimales traduisent les contraintes propres aux entités et aux relations. Dans un schema, elles sont représentées comme suit:
+- **0-1**: aucune ou une seule 
+- **0-n**: aucune ou plusieurs
+- **1-1**: une seule
+- **1-n**: une ou plusieurs
